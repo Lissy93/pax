@@ -6,5 +6,5 @@
 
 | Before        | After         |
 | ------------- |:-------------:|
-| ![Demo before running script](https://media.giphy.com/media/g4OHFMkRrCaWjBJb2C/giphy.gif)      | ![Demo after running script](https://media.giphy.com/media/3Z1pdVB6bpHQqiEums/giphy.gif) |
+| ![Demo before running script](docs/before.gif) | ![Demo after running script](docs/after.gif) |
 
