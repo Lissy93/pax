@@ -11,19 +11,19 @@ def captureSize(capture):
     return (int(width), int(height))
 
 
-def codec():
-    print("Using codec:", "avc1")
-    return cv2.VideoWriter_fourcc(*'avc1')
+def codec(codecName):
+    print("Using codec:", codecName)
+    return cv2.VideoWriter_fourcc(*codecName)
 
 
-def setupStream(inputFile, outputFile):
+def setupStream(inputFile, outputFile, codecName="avc1"):
     inputVideo = cv2.VideoCapture(inputFile)
 
     videoSize = captureSize(inputVideo)
-    videoCodec = codec()
+    videoCodec = codec(codecName)
     frameRate = 20.0
 
     outputVideo = cv2.VideoWriter(
-        outputFile, videoCodec, frameRate, videoSize, False)
+        outputFile, videoCodec, frameRate, videoSize, True)
 
     return (inputVideo, outputVideo)

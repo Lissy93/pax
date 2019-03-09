@@ -1,22 +1,23 @@
 import sys
 import getopt
 
-CORRECT_USAGE = 'strobe_destroyer.py -i <inputfile> -o <outputfile>'
+CORRECT_USAGE = 'strobe_destroyer.py -i <inputfile> -o <outputfile> -c <codecName>'
 
 
 def parseArguments(argv):
     inputFile = ''
     outputFile = ''
+    codecName = ''
 
     try:
-        opts, _ = getopt.getopt(argv, "hi:o:", ["ifile=", "ofile="])
+        opts, _ = getopt.getopt(argv, "hi:o:c:", ["ifile=", "ofile=", "codecName="])
 
     except getopt.GetoptError:
-        return (False, ('', ''))
+        return (False, ('', '', ''))
 
     for opt, arg in opts:
         if opt == '-h':
-            return (False, ('', ''))
+            return (False, ('', '', ''))
 
         elif opt in ("-i", "--ifile"):
             inputFile = arg
@@ -24,8 +25,11 @@ def parseArguments(argv):
         elif opt in ("-o", "--ofile"):
             outputFile = arg
 
+        elif opt in ("-c", "--codecName"):
+            codecName = arg
+
     if not inputFile or not outputFile:
-        return (False, ('', ''))
+        return (False, ('', '', ''))
 
     else:
-        return (True, (inputFile, outputFile))
+        return (True, (inputFile, outputFile, codecName))
