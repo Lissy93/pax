@@ -55,8 +55,5 @@ while success:
 
 
     success, image = vidcap.read()
-    # print('Frame: %d'  % count, success)
-    # print(frameBrightness)
-    # print(buffer)
-    # print()
+
     count += 1
