@@ -2,8 +2,10 @@ import cv2
 import numpy as np
 
 video = cv2.VideoCapture('video-sources/lady-gaga.mp4')
-fourcc = cv2.VideoWriter_fourcc(*'XVID')
-output = cv2.VideoWriter('sample-output/output.avi', fourcc, 20.0, (250, 250))
+
+
+fourcc = cv2.VideoWriter_fourcc(*'H264')
+output = cv2.VideoWriter('./output.mp4', fourcc, 20.0, (1280, 720), False)
 
 while video.isOpened():
 
@@ -11,9 +13,10 @@ while video.isOpened():
 
     if ret == True:
         grey = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
-        output.write(grey)
 
+        output.write(grey)
         cv2.imshow('grey', grey)
+
         print("frame saved")
     else:
         print("stream failed to read")
@@ -23,6 +26,11 @@ while video.isOpened():
         print("stream ended")
         break
 
-video.release()
 output.release()
+print("Output released")
+
+video.release()
+print("Input released")
+
 cv2.destroyAllWindows()
+print("Windows destroyed")
