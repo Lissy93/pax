@@ -35,6 +35,6 @@ Uses OpenCV to analyse and programmatically adjust frames in a video stream.
 
 It works as a stand-alone module. It should then be able to be used in a Chrome extension, filter for Smart TV, by a broadcasting company, as a mobile app, or on pretty much any other platform.
 
-##About
+## About
 
 *Developed by [Oliver Poole](https://github.com/OlliePoole) and [Alicia Sykes](https://aliciasykes.com) at [StartHack 19](https://starthack.ch/). Licensed under [MIT](https://gist.github.com/Lissy93/143d2ee01ccc5c052a17), 2019.*
