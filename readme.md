@@ -31,10 +31,13 @@ Where the `--ifile` is your input, `--ofile` is your output, and `--codec` is yo
 
 Uses OpenCV to analyse and programmatically adjust frames in a video stream.
 
+![Gam correction](https://docs.opencv.org/2.4/_images/math/331ebcd980b851f25de1979ebb67a2fed1c8477e.png)
+
+The general flow of the program:
+
 ![Flow Chart](docs/flow-chart.png) 
 
-It works as a stand-alone module. It should then be able to be used in a Chrome extension, filter for Smart TV, by a broadcasting company, as a mobile app, or on pretty much any other platform.
 
 ## About
 
-*Developed by [Oliver Poole](https://github.com/OlliePoole) and [Alicia Sykes](https://aliciasykes.com) at [StartHack 19](https://starthack.ch/). Licensed under [MIT](https://gist.github.com/Lissy93/143d2ee01ccc5c052a17), 2019.*
+*Developed by [Oliver Poole](https://github.com/OlliePoole) and [Alicia Sykes](https://aliciasykes.com) at [StartHack 19](https://starthack.ch/), won 1st place. Licensed under [MIT](https://gist.github.com/Lissy93/143d2ee01ccc5c052a17), 2019.*
