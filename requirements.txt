@@ -1,0 +1,9 @@
+argumentparser==1.2.1
+autopep8==1.4.3
+entrypoints==0.3
+flake8==3.7.7
+mccabe==0.6.1
+numpy==1.16.2
+opencv-python==4.0.0.21
+pycodestyle==2.5.0
+pyflakes==2.1.1

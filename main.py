@@ -1,8 +1,8 @@
-import cv2
-import numpy as np
 import sys
-import argumentParser
-import captureUtils
+
+import cv2
+
+from pax import argument_parser, capture_utils
 
 SENSITIVITY = 3  # A number between 0 and 10, for intensity of flashes
 BUFFER_SIZE = 3  # The number of frames to hold in history, minimum of 2
@@ -36,7 +36,7 @@ def fixFlash():
 
 def startStream(inputFile, outputFile, codecName):
 
-    inputVideo, outputVideo = captureUtils.setupStream(
+    inputVideo, outputVideo = capture_utils.setupStream(
         inputFile, outputFile, codecName)
     count = 0  # Iterating through number of frames
     buffer = []
@@ -44,9 +44,7 @@ def startStream(inputFile, outputFile, codecName):
     while inputVideo.isOpened():
         ret, frame = inputVideo.read()
 
-        if ret == True:
-            grey = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
-
+        if ret is True:
             # Calculate brightness of current frame
             frameBrightness = getBrightness(frame)
 
@@ -80,10 +78,10 @@ def startStream(inputFile, outputFile, codecName):
 def main(argv):
 
     (success, (inputFile, outputFile, codecName)
-     ) = argumentParser.parseArguments(argv)
+     ) = argument_parser.parseArguments(argv)
 
     if not success:
-        print(argumentParser.CORRECT_USAGE)
+        print(argument_parser.CORRECT_USAGE)
         sys.exit()
     else:
         print("inputFile: ", inputFile)
