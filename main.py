@@ -10,7 +10,7 @@ BUFFER_SIZE = 3  # The number of frames to hold in history, minimum of 2
 # Gets a numeric value, for average brightness of a given frame
 
 
-def getBrightness(frame):
+def get_brightness(frame):
     frame = cv2.cvtColor(frame, cv2.COLOR_BGR2HSV)
     value = cv2.split(frame)[2]
     average = cv2.mean(value)
@@ -18,7 +18,7 @@ def getBrightness(frame):
 
 
 # Determins if a given frame is a camera flash, or just slight change
-def detectIfFlash(frameBrightness):
+def detect_if_flash(frameBrightness):
     if len(frameBrightness) < BUFFER_SIZE:
         return False
     didFlashHappen = True
@@ -30,13 +30,13 @@ def detectIfFlash(frameBrightness):
 
 
 # Takes a frame which has white flash, brings brightness down to match before frame
-def fixFlash():
+def fix_flash():
     return True
 
 
-def startStream(inputFile, outputFile, codecName):
+def start_stream(inputFile, outputFile, codecName):
 
-    inputVideo, outputVideo = capture_utils.setupStream(
+    inputVideo, outputVideo = capture_utils.setup_stream(
         inputFile, outputFile, codecName)
     count = 0  # Iterating through number of frames
     buffer = []
@@ -46,7 +46,7 @@ def startStream(inputFile, outputFile, codecName):
 
         if ret is True:
             # Calculate brightness of current frame
-            frameBrightness = getBrightness(frame)
+            frameBrightness = get_brightness(frame)
 
             # Maintain a buffer of the past 3 frames
             buffer.append(frameBrightness)
@@ -54,7 +54,7 @@ def startStream(inputFile, outputFile, codecName):
                 buffer.pop(0)
 
             # Detect if flash
-            if detectIfFlash(buffer):
+            if detect_if_flash(buffer):
                 print("Flash detected at frame %d" % count)
 
             count += 1
@@ -78,7 +78,7 @@ def startStream(inputFile, outputFile, codecName):
 def main(argv):
 
     (success, (inputFile, outputFile, codecName)
-     ) = argument_parser.parseArguments(argv)
+     ) = argument_parser.parse_arguments(argv)
 
     if not success:
         print(argument_parser.CORRECT_USAGE)
@@ -86,7 +86,7 @@ def main(argv):
     else:
         print("inputFile: ", inputFile)
         print("outputFile: ", outputFile)
-        startStream(inputFile, outputFile, codecName)
+        start_stream(inputFile, outputFile, codecName)
 
 
 if __name__ == "__main__":

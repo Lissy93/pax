@@ -3,7 +3,7 @@ import getopt
 CORRECT_USAGE = 'strobe_destroyer.py -i <inputfile> -o <outputfile> -c <codecName>'
 
 
-def parseArguments(argv):
+def parse_arguments(argv):
     inputFile = ''
     outputFile = ''
     codecName = ''
