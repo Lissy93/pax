@@ -1,7 +1,7 @@
 import cv2
 
 
-def captureSize(capture):
+def capture_size(capture):
     width = capture.get(3)  # frame width
     height = capture.get(4)  # frame height
 
@@ -16,10 +16,10 @@ def codec(codecName):
     return cv2.VideoWriter_fourcc(*codecName)
 
 
-def setupStream(inputFile, outputFile, codecName="avc1"):
+def setup_stream(inputFile, outputFile, codecName="avc1"):
     inputVideo = cv2.VideoCapture(inputFile)
 
-    videoSize = captureSize(inputVideo)
+    videoSize = capture_size(inputVideo)
     videoCodec = codec(codecName)
     frameRate = 20.0
 
