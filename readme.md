@@ -27,9 +27,13 @@ Where the `--ifile` is your input, `--ofile` is your output, and `--codec` is yo
 
 ## How It Works
 
-Uses OpenCV to analyse and programmatically adjust frames in a video stream.
-
-![Gam correction](https://docs.opencv.org/2.4/_images/math/331ebcd980b851f25de1979ebb67a2fed1c8477e.png)
+<a href="https://vimeo.com/777919376">
+  <p align="center">
+    <img width="300" src="https://i.ibb.co/HCycD07/alicia-ollie-pax-video-thumbnail.png" />
+    <br>
+    <i>Watch Interview</i>
+  </p>
+</a>
 
 The general flow of the program:
 
@@ -37,7 +41,7 @@ The general flow of the program:
 
 
 <!-- License + Copyright -->
-<p  align="center">
+<p align="center">
   <i>Developed at <a href="https://starthack.ch/">StartHack 19</a>, won 1st place 🏆</i><br>
   <i>© <a href="https://aliciasykes.com">Alicia Sykes</a> and <a href="https://github.com/OlliePoole">Ollie Poole</a> 2019</i><br>
   <i>Licensed under <a href="https://gist.github.com/Lissy93/143d2ee01ccc5c052a17">MIT</a></i><br>
