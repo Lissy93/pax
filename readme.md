@@ -37,8 +37,28 @@ Where the `--ifile` is your input, `--ofile` is your output, and `--codec` is yo
 
 The general flow of the program:
 
+<details>
+<summary><sup><b>Chart not displaying?</b> <i>(click to see PNG)</i></sup></summary>
+  
 ![Flow Chart](docs/flow-chart.png)
 
+</details>
+
+```mermaid
+graph LR
+
+    A[Start] --> B[Read in Video Stream]
+    B --> C{Is end of stream?}
+    C -->|Yes| D[Finish]
+    C -->|No| E[Proceed to next frame]
+    E --> F{Compare current frame to surrounding frames}
+    F -->|If significantly brighter| G{Check for scene change}
+    G -->|Yes| E
+    G -->|No| H[Decrease brightness of current frame to match levels of surrounding frames]
+    H --> E
+    F -->|No| E
+
+```
 
 <!-- License + Copyright -->
 <p align="center">
